@@ -6,7 +6,11 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.10.3"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.3",
+    "multer": "^1.4.2",
+    "sharp": "^0.26.0",
+    "uuid": "^8.3.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
