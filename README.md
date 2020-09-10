@@ -1,2 +1,2 @@
 # esteban-cloud
-Minicloud
+Image cloud
