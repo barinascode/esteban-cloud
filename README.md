@@ -7,7 +7,9 @@ If you need a service to upload images and be able to choose the size this is yo
 # Get started
 
  **git**: `git clone https://github.com/barinascode/esteban-cloud.git`
+ 
  **npm**: `npm install`
+ 
  **npm**: `run start-dev`
  
 # How to upload an image
