@@ -28,7 +28,17 @@ const routes = ({ app, handlersControllers }) => {
             }
           })
            
-          var upload = multer({ storage: storage })
+          var upload = multer({
+            storage: storage,
+            fileFilter(req, file, next){
+                const image = file.mimetype.startsWith("image/");
+                if(image){
+                  next(null, true);
+                } else {
+                  next({error: "El archivo no es una imagen"}, false);
+                }
+            } 
+          })
 
     app.get( '/api/token-provider', AuthController.tokenProvider)
     app.post( '/api/upload', upload.single('myFile'), UploadController.up)
