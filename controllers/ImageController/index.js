@@ -25,19 +25,31 @@ const ImageController = ({ jwt }) => ({
             // Set the content-type of the response
             res.type(`image/${format || 'png'}`)
 
+            try {
+                  if (fs.existsSync(`uploads/${_id}/original.png`)) {
 
-            const readStream = fs.createReadStream(`uploads/${_id}/original.png`)
-            let transform = sharp()
+                        const readStream = fs.createReadStream(`uploads/${_id}/original.png`)
 
-            if (format) {
-            transform = transform.toFormat(format)
-            }
+                        let transform = sharp()
+            
+                        if (format) {
+                        transform = transform.toFormat(format)
+                        }
+            
+                        if (width || height) {
+                        transform = transform.resize(width, height)
+                        }
+            
+                        readStream.pipe(transform).pipe(res)
+                  }
+                } catch(err) {
 
-            if (width || height) {
-            transform = transform.resize(width, height)
-            }
+                  console.error(err)
 
-            readStream.pipe(transform).pipe(res)
+                  
+                }
+
+
 
       }
 })
