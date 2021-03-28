@@ -1,2 +1,4 @@
 node_modules/
 loaders/mongooseLoader.js
+uploads/
+package-lock.json
